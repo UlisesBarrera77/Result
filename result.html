@@ -1,0 +1,49 @@
+<DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Se mostrara 3 datos diferentes mostrado con variables</title>
+    </head>
+    <body>
+        <from action="resultado.html" method="get">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" nombre="nombre"><br><br>
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" nombre="edad"><br><br>
+            <label type="email">Email:</label>
+            <input type="email" id="email" nombre="email"><br><br>
+            <input type="submit" value="submit">
+        </from>
+
+        
+        <php
+            $nombre = $_GET [nombre];
+            $edad= $_GET [edad];
+            $email= $_GET [email];
+
+            echo "Nombre: ". $nombre. "<br>";
+
+            echo "Edad: ". $edad . "<br>";
+
+            echo "Email: ". $email . "<br>"
+        ?>
+
+        <php 
+            if ($edad < 18) {
+                echo " Eres menor de edad " ;
+            } else{
+                echo " Tiene 18 o mas años." ;
+            }
+        ?>
+
+        <php 
+             $to = "example@example.com" ; 
+             $subject = "Nuevo envio de formulario"
+             $mensaje = "Nombre: . $nombre . \nEdad: " . $edad . "\nMail: " . $email;
+             $headers = "Desde: webmaster@example.com" ;
+            
+            mail($to, $subject, $mensaje, $headers);
+        ?>
+
+
+    </body>
+</DOCTYPE>
